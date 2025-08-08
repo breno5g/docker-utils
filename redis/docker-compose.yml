@@ -1,0 +1,14 @@
+services:
+  redis:
+    image: redis:7
+    container_name: redis_server
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${REDIS_PORT}:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
